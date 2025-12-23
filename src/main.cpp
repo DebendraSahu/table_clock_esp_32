@@ -215,16 +215,16 @@ void drawUI()
     tft.setTextDatum(MC_DATUM);
 
     // TIME
-    tft.setTextFont(6);
+    tft.setTextFont(8);
     tft.setTextColor(COL_TIME, COL_BG);
     tft.drawString(timeStr, timeW / 2, h / 2 - 20);
 
-    tft.setTextFont(2);
+    tft.setTextFont(4);
     tft.setTextColor(COL_ACCENT, COL_BG);
-    tft.drawString(dateStr, timeW / 2, h / 2 + 35);
+    tft.drawString(dateStr, timeW / 2, h / 2 + 45);
 
     // WEATHER
-    tft.drawFastVLine(timeW, 10, h - 20, TFT_DARKGREY);
+    tft.drawFastVLine(timeW - 10, 10, h - 20, TFT_DARKGREY);
     int wx = timeW + (w - timeW) / 2;
 
     tft.setTextFont(4);
@@ -232,7 +232,7 @@ void drawUI()
     String temp = isnan(weatherTemp) ? "--°C" : String(weatherTemp, 1) + "°C";
     tft.drawString(temp, wx, 110);
 
-    tft.setTextFont(2);
+    tft.setTextFont(4);
     tft.drawString(weatherText, wx, 160);
 
     // WIFI STATUS
