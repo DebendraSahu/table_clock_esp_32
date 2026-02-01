@@ -1,2 +1,6 @@
 .pio
 .vscode/
+.temp/
+
+# Local WiFi credentials - share secrets.example.h instead
+src/secrets.h
