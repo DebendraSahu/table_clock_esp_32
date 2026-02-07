@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="900" height="440" role="img" aria-label="SPI bus topology. One VSPI controller on the ESP32 drives a shared bus of SCK on GPIO 18, MOSI on GPIO 23 and MISO on GPIO 19. The bus fans out to two peripherals with separate chip selects: the ILI9488 display on GPIO 15 clocked at 27 megahertz, which is write-only so its SDO stays disconnected, and the XPT2046 touch controller on GPIO 22 clocked at 1 megahertz, which is the only device reading back on MISO.">
+
+  <rect x="0" y="0" width="900" height="440" rx="10" fill="#0F1419"/>
+
+  <text x="40" y="38" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#E6EDF3">One bus, two chip selects, two clock speeds</text>
+
+  <!-- ============ controller ============ -->
+  <rect x="40" y="176" width="170" height="98" rx="8" fill="#21262D" stroke="#30363D" stroke-width="1.5"/>
+  <text x="125" y="215" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">ESP32</text>
+  <text x="125" y="238" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#7D8590" text-anchor="middle">VSPI controller</text>
+
+  <!-- ============ shared trunk ============ -->
+  <text x="315" y="196" font-family="ui-monospace,Consolas,monospace" font-size="11" letter-spacing="1.2" fill="#7D8590" text-anchor="middle">SHARED BUS</text>
+
+  <g stroke="#E3A53C" stroke-width="3" fill="none" stroke-linecap="round">
+    <line x1="210" y1="215" x2="420" y2="215"/>
+    <line x1="210" y1="235" x2="420" y2="235"/>
+  </g>
+  <line x1="210" y1="255" x2="420" y2="255" stroke="#46C6A2" stroke-width="3" stroke-linecap="round"/>
+
+  <g font-family="ui-monospace,Consolas,monospace" font-size="10" fill="#8B949E">
+    <text x="428" y="219">SCK · 18</text>
+    <text x="428" y="239">MOSI · 23</text>
+    <text x="428" y="259" fill="#46C6A2">MISO · 19</text>
+  </g>
+
+  <!-- ============ fan-out ============ -->
+  <g fill="none" stroke-width="2.6" stroke-linecap="round">
+    <path d="M 505 215 C 545 215, 545 130, 585 130" stroke="#E3A53C"/>
+    <path d="M 505 235 C 545 235, 545 145, 585 145" stroke="#E3A53C"/>
+    <path d="M 505 215 C 545 215, 545 320, 585 320" stroke="#E3A53C"/>
+    <path d="M 505 235 C 545 235, 545 335, 585 335" stroke="#E3A53C"/>
+    <path d="M 505 255 C 545 255, 545 350, 585 350" stroke="#46C6A2"/>
+  </g>
+
+  <!-- ============ display ============ -->
+  <rect x="585" y="78" width="275" height="118" rx="8" fill="#1C2128" stroke="#6FA8E8" stroke-width="1.5"/>
+  <text x="606" y="108" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#FFFFFF">ILI9488 · display</text>
+  <text x="606" y="132" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#8B949E">CS GPIO 15 · 27 MHz</text>
+  <text x="606" y="152" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#8B949E">receives SCK + MOSI</text>
+  <text x="606" y="176" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#6E7681">write-only — SDO unconnected</text>
+
+  <!-- ============ touch ============ -->
+  <rect x="585" y="272" width="275" height="118" rx="8" fill="#1C2128" stroke="#46C6A2" stroke-width="1.5"/>
+  <text x="606" y="302" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#FFFFFF">XPT2046 · touch</text>
+  <text x="606" y="326" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#8B949E">CS GPIO 22 · 1 MHz</text>
+  <text x="606" y="346" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#8B949E">receives SCK + MOSI</text>
+  <text x="606" y="370" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#46C6A2">the only device that reads back</text>
+
+  <!-- ============ notes ============ -->
+  <line x1="40" y1="410" x2="860" y2="410" stroke="#21262D" stroke-width="1"/>
+  <text x="40" y="432" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#7D8590">The driver drops the clock to 1 MHz whenever it asserts the touch CS, then restores 27 MHz for the display.</text>
+</svg>

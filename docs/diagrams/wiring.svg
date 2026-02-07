@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 690" width="920" height="690" role="img" aria-label="Wiring diagram. Fourteen pins on the ILI9488 display board connect to ten pins on the ESP32-DevKitM-1. GPIO 23 and GPIO 18 each take two wires because the display and touch controller share the SPI bus, and 3V3 feeds both VCC and the LED backlight. The display SDO pin and the touch T_IRQ pin are left unconnected.">
+
+  <rect x="0" y="0" width="920" height="690" rx="10" fill="#0F1419"/>
+
+  <!-- ============ titles ============ -->
+  <text x="40" y="30" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#E6EDF3">3.5" ILI9488 + XPT2046</text>
+  <text x="40" y="46" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#7D8590">red board · 14-pin header</text>
+
+  <text x="684" y="30" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#E6EDF3">ESP32-DevKitM-1</text>
+  <text x="684" y="46" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#7D8590">pin names on board underside</text>
+
+  <!-- ============ display board ============ -->
+  <rect x="40" y="58" width="196" height="524" rx="8" fill="#C4262E"/>
+  <rect x="40" y="58" width="196" height="524" rx="8" fill="none" stroke="#8E1B21" stroke-width="2"/>
+  <text x="58" y="82" font-family="ui-monospace,Consolas,monospace" font-size="10" letter-spacing="1.6" fill="#F7C6C8">DISPLAY PINS</text>
+
+  <g font-family="ui-monospace,Consolas,monospace" font-size="13" fill="#FFFFFF" text-anchor="end">
+    <text x="216" y="110">T_IRQ</text>
+    <text x="216" y="143">T_DO</text>
+    <text x="216" y="176">T_DIN</text>
+    <text x="216" y="209">T_CS</text>
+    <text x="216" y="242">T_CLK</text>
+    <text x="216" y="275">SDO</text>
+    <text x="216" y="308">LED</text>
+    <text x="216" y="341">SCK</text>
+    <text x="216" y="374">SDI</text>
+    <text x="216" y="407">DC/RS</text>
+    <text x="216" y="440">RESET</text>
+    <text x="216" y="473">CS</text>
+    <text x="216" y="506">GND</text>
+    <text x="216" y="539">VCC</text>
+  </g>
+
+  <g>
+    <circle cx="236" cy="106" r="4.5" fill="#46C6A2"/>
+    <circle cx="236" cy="139" r="4.5" fill="#46C6A2"/>
+    <circle cx="236" cy="172" r="4.5" fill="#E3A53C"/>
+    <circle cx="236" cy="205" r="4.5" fill="#46C6A2"/>
+    <circle cx="236" cy="238" r="4.5" fill="#E3A53C"/>
+    <circle cx="236" cy="271" r="4.5" fill="none" stroke="#6E7681" stroke-width="1.6"/>
+    <circle cx="236" cy="304" r="4.5" fill="#FF6B6B"/>
+    <circle cx="236" cy="337" r="4.5" fill="#E3A53C"/>
+    <circle cx="236" cy="370" r="4.5" fill="#E3A53C"/>
+    <circle cx="236" cy="403" r="4.5" fill="#6FA8E8"/>
+    <circle cx="236" cy="436" r="4.5" fill="#6FA8E8"/>
+    <circle cx="236" cy="469" r="4.5" fill="#6FA8E8"/>
+    <circle cx="236" cy="502" r="4.5" fill="#8B949E"/>
+    <circle cx="236" cy="535" r="4.5" fill="#FF6B6B"/>
+  </g>
+
+  <!-- ============ wires ============ -->
+  <g fill="none" stroke-width="2.4" stroke-linecap="round">
+    <!-- touch -->
+    <path d="M 236 139 C 420 139, 520 202, 684 202" stroke="#46C6A2"/>
+    <path d="M 236 205 C 420 205, 520 156, 684 156" stroke="#46C6A2"/>
+    <!-- shared spi -->
+    <path d="M 236 172 C 420 172, 520 248, 684 248" stroke="#E3A53C"/>
+    <path d="M 236 370 C 420 370, 520 248, 684 248" stroke="#E3A53C"/>
+    <path d="M 236 238 C 420 238, 520 294, 684 294" stroke="#E3A53C"/>
+    <path d="M 236 337 C 420 337, 520 294, 684 294" stroke="#E3A53C"/>
+    <!-- display control -->
+    <path d="M 236 403 C 420 403, 520 386, 684 386" stroke="#6FA8E8"/>
+    <path d="M 236 436 C 420 436, 520 340, 684 340" stroke="#6FA8E8"/>
+    <path d="M 236 469 C 420 469, 520 432, 684 432" stroke="#6FA8E8"/>
+    <!-- ground -->
+    <path d="M 236 502 C 420 502, 520 478, 684 478" stroke="#8B949E"/>
+    <!-- power -->
+    <path d="M 236 304 C 440 304, 520 556, 684 556" stroke="#FF6B6B"/>
+    <path d="M 236 535 C 440 535, 520 556, 684 556" stroke="#FF6B6B"/>
+  </g>
+
+  <!-- ============ unconnected stubs ============ -->
+  <g stroke="#6E7681" stroke-width="2" stroke-linecap="round">
+    <path d="M 236 271 L 300 271" fill="none" stroke-dasharray="5 5"/>
+    <line x1="310" y1="265" x2="322" y2="277"/>
+    <line x1="322" y1="265" x2="310" y2="277"/>
+    <path d="M 236 106 L 300 106" fill="none" stroke-dasharray="5 5"/>
+    <line x1="310" y1="100" x2="322" y2="112"/>
+    <line x1="322" y1="100" x2="310" y2="112"/>
+  </g>
+  <text x="332" y="275" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#7D8590">leave unconnected</text>
+  <text x="332" y="110" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#7D8590">not used by this driver</text>
+
+  <!-- ============ esp32 board ============ -->
+  <rect x="684" y="58" width="196" height="548" rx="8" fill="#21262D"/>
+  <rect x="684" y="58" width="196" height="548" rx="8" fill="none" stroke="#0D1117" stroke-width="2"/>
+  <text x="704" y="82" font-family="ui-monospace,Consolas,monospace" font-size="10" letter-spacing="1.6" fill="#7D8590">J3 HEADER</text>
+
+  <g font-family="ui-monospace,Consolas,monospace" font-size="13" fill="#FFFFFF">
+    <text x="704" y="160">IO22</text>
+    <text x="704" y="206">IO19</text>
+    <text x="704" y="252">IO23</text>
+    <text x="704" y="298">IO18</text>
+    <text x="704" y="344">IO4</text>
+    <text x="704" y="390">IO2</text>
+    <text x="704" y="436">IO15</text>
+    <text x="704" y="482">GND</text>
+    <text x="704" y="560">3V3</text>
+  </g>
+
+  <g font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#E3A53C">
+    <text x="756" y="252">2 wires</text>
+    <text x="756" y="298">2 wires</text>
+  </g>
+  <text x="756" y="560" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#FF6B6B">2 wires</text>
+
+  <line x1="700" y1="512" x2="864" y2="512" stroke="#30363D" stroke-width="1"/>
+  <text x="704" y="534" font-family="ui-monospace,Consolas,monospace" font-size="10" letter-spacing="1.6" fill="#7D8590">J1 HEADER</text>
+
+  <g>
+    <circle cx="684" cy="156" r="4.5" fill="#46C6A2"/>
+    <circle cx="684" cy="202" r="4.5" fill="#46C6A2"/>
+    <circle cx="684" cy="248" r="7" fill="#E3A53C"/>
+    <circle cx="684" cy="294" r="7" fill="#E3A53C"/>
+    <circle cx="684" cy="340" r="4.5" fill="#6FA8E8"/>
+    <circle cx="684" cy="386" r="4.5" fill="#6FA8E8"/>
+    <circle cx="684" cy="432" r="4.5" fill="#6FA8E8"/>
+    <circle cx="684" cy="478" r="4.5" fill="#8B949E"/>
+    <circle cx="684" cy="556" r="7" fill="#FF6B6B"/>
+  </g>
+
+  <!-- ============ legend ============ -->
+  <line x1="40" y1="620" x2="880" y2="620" stroke="#21262D" stroke-width="1"/>
+  <g font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#8B949E">
+    <rect x="40"  y="645" width="22" height="3" rx="1.5" fill="#FF6B6B"/><text x="70"  y="649">Power</text>
+    <rect x="128" y="645" width="22" height="3" rx="1.5" fill="#8B949E"/><text x="158" y="649">Ground</text>
+    <rect x="222" y="645" width="22" height="3" rx="1.5" fill="#E3A53C"/><text x="252" y="649">Shared SPI — two wires per pin</text>
+    <rect x="470" y="645" width="22" height="3" rx="1.5" fill="#6FA8E8"/><text x="500" y="649">Display control</text>
+    <rect x="616" y="645" width="22" height="3" rx="1.5" fill="#46C6A2"/><text x="646" y="649">Touch</text>
+    <line x1="706" y1="646" x2="728" y2="646" stroke="#6E7681" stroke-width="3" stroke-dasharray="4 4"/><text x="736" y="649">Not connected</text>
+  </g>
+</svg>

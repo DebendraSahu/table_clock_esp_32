@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" width="980" height="500" role="img" aria-label="Annotated layout of the 480 by 320 display. The left 306 pixels hold the clock: a 72 pixel anti-aliased time in a sprite, an accent rule, and the date. A hairline divider separates it from the weather column on the right, which holds a vector condition icon, the temperature in its own sprite, the condition name, and the daily high and low. WiFi signal strength sits top right. Tapping the left half toggles night mode; tapping the right half refreshes the weather.">
+
+  <rect x="0" y="0" width="980" height="500" rx="10" fill="#161B22"/>
+
+  <!-- ================================================================
+       THE SCREEN — drawn 1:1 at 480 x 320, offset to (140, 70)
+       ================================================================ -->
+  <rect x="134" y="64" width="492" height="332" rx="10" fill="#0A0D11" stroke="#30363D" stroke-width="1.5"/>
+  <rect x="140" y="70" width="480" height="320" rx="4" fill="#0E141B"/>
+
+  <!-- divider: config.h DIVIDER_X 306, y 34..286 -->
+  <line x1="446" y1="104" x2="446" y2="356" stroke="#1E2A38" stroke-width="2"/>
+
+  <!-- ==== clock, left panel ==== -->
+  <text x="186" y="233" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="66" font-weight="700" fill="#FFFFFF" letter-spacing="-1">10:42</text>
+  <text x="364" y="196" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#FFB443">PM</text>
+
+  <rect x="266" y="264" width="54" height="3" rx="1.5" fill="#FFB443"/>
+
+  <text x="293" y="300" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C8B9C" text-anchor="middle">MON 19 JAN 2026</text>
+
+  <!-- ==== weather, right panel ==== -->
+  <!-- signal bars -->
+  <g>
+    <rect x="578" y="100" width="5" height="4"  rx="1" fill="#4ADE80"/>
+    <rect x="585" y="96"  width="5" height="8"  rx="1" fill="#4ADE80"/>
+    <rect x="592" y="92"  width="5" height="12" rx="1" fill="#4ADE80"/>
+    <rect x="599" y="88"  width="5" height="16" rx="1" fill="#1E2A38"/>
+  </g>
+
+  <!-- sun -->
+  <g stroke="#FFB443" stroke-width="2.5" stroke-linecap="round">
+    <line x1="533" y1="128" x2="533" y2="120"/>
+    <line x1="533" y1="196" x2="533" y2="204"/>
+    <line x1="499" y1="162" x2="491" y2="162"/>
+    <line x1="567" y1="162" x2="575" y2="162"/>
+    <line x1="509" y1="138" x2="503" y2="132"/>
+    <line x1="557" y1="186" x2="563" y2="192"/>
+    <line x1="557" y1="138" x2="563" y2="132"/>
+    <line x1="509" y1="186" x2="503" y2="192"/>
+  </g>
+  <circle cx="533" cy="162" r="20" fill="#FFB443"/>
+
+  <!-- temperature -->
+  <text x="505" y="243" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="32" font-weight="700" fill="#FFB443">27</text>
+  <circle cx="546" cy="222" r="5" fill="none" stroke="#FFB443" stroke-width="2.5"/>
+  <text x="555" y="243" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="32" font-weight="700" fill="#FFB443">C</text>
+
+  <text x="533" y="273" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">CLEAR</text>
+
+  <rect x="503" y="288" width="60" height="1" fill="#1E2A38"/>
+
+  <g font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="700">
+    <text x="489" y="315" fill="#7C8B9C">H</text>
+    <text x="502" y="315" fill="#FFFFFF">31</text>
+    <circle cx="523" cy="304" r="3" fill="none" stroke="#FFFFFF" stroke-width="1.6"/>
+    <text x="537" y="315" fill="#7C8B9C">L</text>
+    <text x="549" y="315" fill="#FFFFFF">22</text>
+    <circle cx="570" cy="304" r="3" fill="none" stroke="#FFFFFF" stroke-width="1.6"/>
+  </g>
+
+  <!-- ================================================================
+       ANNOTATIONS
+       ================================================================ -->
+  <g stroke="#3D4753" stroke-width="1.2" fill="none">
+    <path d="M 128 176 L 176 176 L 190 200"/>
+    <path d="M 128 300 L 200 300"/>
+    <path d="M 636 162 L 690 162"/>
+    <path d="M 636 232 L 690 232"/>
+    <path d="M 636 312 L 690 312"/>
+    <path d="M 636 96  L 690 96"/>
+  </g>
+  <g fill="#3D4753">
+    <circle cx="190" cy="200" r="2.5"/>
+    <circle cx="200" cy="300" r="2.5"/>
+    <circle cx="636" cy="162" r="2.5"/>
+    <circle cx="636" cy="232" r="2.5"/>
+    <circle cx="636" cy="312" r="2.5"/>
+    <circle cx="636" cy="96"  r="2.5"/>
+  </g>
+
+  <g font-family="ui-monospace,Consolas,monospace" text-anchor="end">
+    <text x="122" y="168" font-size="12" font-weight="700" fill="#E6EDF3">72px smooth font</text>
+    <text x="122" y="184" font-size="11" fill="#7D8590">anti-aliased · tabular digits</text>
+    <text x="122" y="296" font-size="12" font-weight="700" fill="#E6EDF3">Date</text>
+    <text x="122" y="312" font-size="11" fill="#7D8590">redrawn only when it changes</text>
+  </g>
+
+  <g font-family="ui-monospace,Consolas,monospace">
+    <text x="700" y="92"  font-size="12" font-weight="700" fill="#E6EDF3">Signal strength</text>
+    <text x="700" y="108" font-size="11" fill="#7D8590">bars derived from RSSI</text>
+
+    <text x="700" y="158" font-size="12" font-weight="700" fill="#E6EDF3">Condition icon</text>
+    <text x="700" y="174" font-size="11" fill="#7D8590">drawn as vectors, not bitmaps</text>
+
+    <text x="700" y="228" font-size="12" font-weight="700" fill="#E6EDF3">Temperature</text>
+    <text x="700" y="244" font-size="11" fill="#7D8590">its own sprite · degree drawn</text>
+    <text x="700" y="259" font-size="11" fill="#7D8590">as a ring, no glyph needed</text>
+
+    <text x="700" y="308" font-size="12" font-weight="700" fill="#E6EDF3">Daily high / low</text>
+    <text x="700" y="324" font-size="11" fill="#7D8590">from the Open-Meteo forecast</text>
+  </g>
+
+  <!-- ================================================================
+       TOUCH ZONES
+       ================================================================ -->
+  <g stroke="#46C6A2" stroke-width="1.4" fill="none">
+    <path d="M 140 412 L 140 420 L 446 420 L 446 412"/>
+    <path d="M 446 412 L 446 420 L 620 420 L 620 412"/>
+  </g>
+  <g font-family="ui-monospace,Consolas,monospace" font-size="12" text-anchor="middle" fill="#46C6A2">
+    <text x="293" y="440">tap → night mode</text>
+    <text x="533" y="440">tap → refresh weather</text>
+  </g>
+
+  <!-- ================================================================
+       CAPTION
+       ================================================================ -->
+  <line x1="40" y1="462" x2="940" y2="462" stroke="#21262D" stroke-width="1"/>
+  <text x="40" y="484" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#7D8590">480 × 320 landscape · split at x=306 · the clock and temperature render into sprites, so neither ever flickers</text>
+</svg>

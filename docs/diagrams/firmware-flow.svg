@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" width="880" height="620" role="img" aria-label="Firmware flow. On boot the display initialises, sprites are allocated, touch calibration is loaded from NVS or run interactively, WiFi starts without blocking, and the full UI is painted immediately. The main loop then calls net::update, which owns the WiFi retry, NTP resync and weather refresh timers and reports what changed; only the affected region is repainted, then the night-mode schedule and touch are handled before looping back.">
+
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7D8590"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="620" rx="10" fill="#0F1419"/>
+
+  <text x="40" y="36" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#E6EDF3">Boot once, then repaint only what changed</text>
+
+  <!-- ================= BOOT ================= -->
+  <text x="40" y="74" font-family="ui-monospace,Consolas,monospace" font-size="10" letter-spacing="1.6" fill="#7D8590">BOOT</text>
+
+  <rect x="60" y="88" width="280" height="42" rx="21" fill="#1C2128" stroke="#6FA8E8" stroke-width="1.5"/>
+  <text x="200" y="114" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">power on</text>
+
+  <rect x="60" y="156" width="280" height="52" rx="8" fill="#1C2128" stroke="#30363D" stroke-width="1.5"/>
+  <text x="200" y="180" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">backlight PWM · display init</text>
+  <text x="200" y="197" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#8B949E" text-anchor="middle">sprites allocated</text>
+
+  <rect x="60" y="234" width="280" height="52" rx="8" fill="#1C2128" stroke="#30363D" stroke-width="1.5"/>
+  <text x="200" y="258" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">touch calibration</text>
+  <text x="200" y="275" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#8B949E" text-anchor="middle">from NVS, or run if screen held</text>
+
+  <rect x="60" y="312" width="280" height="42" rx="8" fill="#1C2128" stroke="#30363D" stroke-width="1.5"/>
+  <text x="200" y="338" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">start WiFi — non-blocking</text>
+
+  <rect x="60" y="380" width="280" height="42" rx="8" fill="#1C2128" stroke="#6FA8E8" stroke-width="1.5"/>
+  <text x="200" y="406" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">paint full UI immediately</text>
+
+  <g stroke="#7D8590" stroke-width="1.6" fill="none" marker-end="url(#ah)">
+    <line x1="200" y1="130" x2="200" y2="150"/>
+    <line x1="200" y1="208" x2="200" y2="228"/>
+    <line x1="200" y1="286" x2="200" y2="306"/>
+    <line x1="200" y1="354" x2="200" y2="374"/>
+    <path d="M 200 422 L 200 452 L 560 452 L 560 176"/>
+  </g>
+
+  <text x="212" y="446" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#6E7681">fields fill in as data arrives</text>
+
+  <!-- ================= LOOP ================= -->
+  <rect x="400" y="86" width="440" height="470" rx="10" fill="none" stroke="#30363D" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="420" y="74" font-family="ui-monospace,Consolas,monospace" font-size="10" letter-spacing="1.6" fill="#7D8590">LOOP · every 20 ms</text>
+
+  <rect x="420" y="112" width="400" height="58" rx="8" fill="#1C2128" stroke="#E3A53C" stroke-width="1.5"/>
+  <text x="620" y="136" font-family="ui-monospace,Consolas,monospace" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">net::update()</text>
+  <text x="620" y="156" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#8B949E" text-anchor="middle">owns WiFi retry · NTP resync · weather refresh</text>
+
+  <rect x="420" y="204" width="400" height="40" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+  <text x="620" y="229" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">what changed?</text>
+
+  <g>
+    <rect x="420" y="286" width="124" height="56" rx="6" fill="#1C2128" stroke="#30363D"/>
+    <text x="482" y="308" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#E3A53C" text-anchor="middle">minute</text>
+    <text x="482" y="326" font-family="ui-monospace,Consolas,monospace" font-size="10" fill="#8B949E" text-anchor="middle">time sprite</text>
+
+    <rect x="558" y="286" width="124" height="56" rx="6" fill="#1C2128" stroke="#30363D"/>
+    <text x="620" y="308" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#E3A53C" text-anchor="middle">weather</text>
+    <text x="620" y="326" font-family="ui-monospace,Consolas,monospace" font-size="10" fill="#8B949E" text-anchor="middle">right column</text>
+
+    <rect x="696" y="286" width="124" height="56" rx="6" fill="#1C2128" stroke="#30363D"/>
+    <text x="758" y="308" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#E3A53C" text-anchor="middle">link state</text>
+    <text x="758" y="326" font-family="ui-monospace,Consolas,monospace" font-size="10" fill="#8B949E" text-anchor="middle">signal bars</text>
+  </g>
+
+  <rect x="420" y="386" width="400" height="40" rx="8" fill="#1C2128" stroke="#30363D" stroke-width="1.5"/>
+  <text x="620" y="411" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">apply night-mode schedule</text>
+
+  <rect x="420" y="452" width="400" height="40" rx="8" fill="#1C2128" stroke="#46C6A2" stroke-width="1.5"/>
+  <text x="620" y="477" font-family="ui-monospace,Consolas,monospace" font-size="12" fill="#FFFFFF" text-anchor="middle">handle touch — press edge only</text>
+
+  <!-- plain connectors: distribution bar at y=266, collection bar at y=366 -->
+  <g stroke="#7D8590" stroke-width="1.6" fill="none">
+    <line x1="620" y1="244" x2="620" y2="266"/>
+    <line x1="482" y1="266" x2="758" y2="266"/>
+    <line x1="482" y1="342" x2="482" y2="366"/>
+    <line x1="620" y1="342" x2="620" y2="366"/>
+    <line x1="758" y1="342" x2="758" y2="366"/>
+    <line x1="482" y1="366" x2="758" y2="366"/>
+  </g>
+
+  <!-- arrowheads only where flow actually enters a box -->
+  <g stroke="#7D8590" stroke-width="1.6" fill="none" marker-end="url(#ah)">
+    <line x1="620" y1="170" x2="620" y2="198"/>
+    <line x1="482" y1="266" x2="482" y2="280"/>
+    <line x1="620" y1="266" x2="620" y2="280"/>
+    <line x1="758" y1="266" x2="758" y2="280"/>
+    <line x1="620" y1="366" x2="620" y2="380"/>
+    <line x1="620" y1="426" x2="620" y2="446"/>
+  </g>
+
+  <path d="M 820 472 L 852 472 L 852 141 L 826 141" stroke="#7D8590" stroke-width="1.6" fill="none" marker-end="url(#ah)"/>
+
+  <!-- ================= note ================= -->
+  <line x1="40" y1="576" x2="840" y2="576" stroke="#21262D" stroke-width="1"/>
+  <text x="40" y="598" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#7D8590">Nothing calls fillScreen() after boot. Each region repaints only when its own data changes, so the display never flickers.</text>
+</svg>
